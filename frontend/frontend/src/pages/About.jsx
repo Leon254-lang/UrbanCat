@@ -27,6 +27,7 @@ const TEAM = [
     name: "John Doe",
     role: "Chief Executive Officer (CEO)",
     initials: "JD",
+    image: "/images/photo-1658863025658-4a259cc68fc9.avif",
     bio: "Leads business strategy, client partnerships, and product vision with over 8 years in digital transformation.",
     skills: ["Product Strategy", "Client Growth", "Operations"]
   },
@@ -34,6 +35,7 @@ const TEAM = [
     name: "Jane Smith",
     role: "Chief Technology Officer (CTO)",
     initials: "JS",
+    image: "/images/photo-1787839253728-f6d42c2cfb8c.avif",
     bio: "Architects scalable cloud systems, M-Pesa payment integrations, and enterprise-grade web security.",
     skills: ["System Architecture", "Cloud & Security", "API Integrations"]
   },
@@ -41,6 +43,7 @@ const TEAM = [
     name: "Bob Johnson",
     role: "Lead Developer",
     initials: "BJ",
+    image: "/images/premium_photo-1685086785636-2a1a0e5b591f.avif",
     bio: "Specializes in high-performance React frontends, cross-platform mobile apps, and clean, maintainable code.",
     skills: ["React & Next.js", "Mobile Apps", "UI Engineering"]
   }
@@ -109,6 +112,12 @@ function About() {
           {/* Mission & Vision Cards */}
           <div className="col-lg-6">
             <div className="d-flex flex-column gap-4">
+              <img
+                src="/images/photo-1787647562528-c591a0011510.avif"
+                alt="UrbanCat team planning a digital project together"
+                className="w-100 rounded-4 shadow-sm"
+                style={{ height: "220px", objectFit: "cover" }}
+              />
               <div className="card border-0 shadow-sm rounded-4 p-4">
                 <div className="d-flex align-items-start gap-3">
                   <div className="bg-primary bg-opacity-10 text-primary rounded-3 p-3 flex-shrink-0">
@@ -186,13 +195,13 @@ function About() {
               <div className="card h-100 border-0 shadow-sm rounded-4 text-center p-4">
                 <div className="card-body d-flex flex-column justify-content-between">
                   <div>
-                    {/* Initials Avatar */}
-                    <div
-                      className="rounded-circle bg-primary text-white fw-bold d-flex align-items-center justify-content-center mx-auto mb-3 shadow-sm"
-                      style={{ width: "76px", height: "76px", fontSize: "1.4rem" }}
-                    >
-                      {member.initials}
-                    </div>
+                    <img
+                      src={member.image}
+                      alt={`${member.name}, ${member.role}`}
+                      className="rounded-4 mx-auto mb-3 shadow-sm d-block"
+                      style={{ width: "100%", height: "180px", objectFit: "cover" }}
+                      loading="lazy"
+                    />
                     <h3 className="h5 fw-bold mb-1">{member.name}</h3>
                     <p className="text-primary small fw-semibold mb-3">{member.role}</p>
                     <p className="text-muted small mb-4">{member.bio}</p>

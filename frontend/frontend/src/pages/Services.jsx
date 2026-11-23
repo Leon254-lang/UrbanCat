@@ -15,6 +15,7 @@ const SERVICES = [
     timeline: "2 – 4 Weeks",
     icon: Code,
     popular: true,
+    image: "/images/photo-1557838923-2985c318be48.avif",
     features: [
       "Modern React / Next.js frontend architecture",
       "Mobile-first responsive design across all screens",
@@ -31,6 +32,7 @@ const SERVICES = [
     timeline: "3 – 5 Weeks",
     icon: ShoppingCart,
     popular: false,
+    image: "/images/photo-1563986768494-4dee2763ff3f.avif",
     features: [
       "Safaricom M-Pesa STK Push & Card checkout",
       "Automated order tracking & email/SMS receipts",
@@ -47,6 +49,7 @@ const SERVICES = [
     timeline: "5 – 8 Weeks",
     icon: Smartphone,
     popular: false,
+    image: "/images/premium_photo-1720287601920-ee8c503af775.avif",
     features: [
       "Single codebase for both Android & iOS",
       "Push notifications & offline data sync",
@@ -63,6 +66,7 @@ const SERVICES = [
     timeline: "1 – 2 Weeks",
     icon: Palette,
     popular: false,
+    image: "/images/photo-1561070791-2526d30994b5.avif",
     features: [
       "Interactive Figma wireframes & clickable prototypes",
       "Logo suite, typography & brand color guidelines",
@@ -79,6 +83,7 @@ const SERVICES = [
     timeline: "Ongoing",
     icon: TrendingUp,
     popular: false,
+    image: "/images/photo-1559028012-481c04fa702d.avif",
     features: [
       "Local & national keyword research strategy",
       "On-page SEO, speed fixes & Google Business setup",
@@ -95,6 +100,7 @@ const SERVICES = [
     timeline: "24/7 Coverage",
     icon: Shield,
     popular: false,
+    image: "/images/photo-1678690832311-bb6e361989ca.avif",
     features: [
       "Daily automated cloud backups & one-click restore",
       "SSL certificate, firewall & malware protection",
@@ -225,6 +231,14 @@ function Services() {
                       Most Popular
                     </span>
                   )}
+
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="card-img-top"
+                    style={{ height: "190px", objectFit: "cover" }}
+                    loading="lazy"
+                  />
 
                   <div className="card-body p-4 d-flex flex-column justify-content-between">
                     <div>

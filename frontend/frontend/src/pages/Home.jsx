@@ -16,19 +16,22 @@ const FEATURED_SERVICES = [
     icon: Code,
     title: "Custom Web Development",
     desc: "Fast, mobile-first websites and web apps tailored to convert visitors into loyal customers.",
-    price: "From KES 45,000"
+    price: "From KES 45,000",
+    image: "/images/photo-1547658719-da2b51169166.avif"
   },
   {
     icon: ShoppingCart,
     title: "E-Commerce & M-Pesa",
     desc: "Full online stores with automated M-Pesa STK Push, inventory tracking, and order alerts.",
-    price: "From KES 75,000"
+    price: "From KES 75,000",
+    image: "/images/photo-1563986768494-4dee2763ff3f.avif"
   },
   {
     icon: Smartphone,
     title: "Mobile App Development",
     desc: "Smooth Android and iOS apps built for speed, offline support, and easy scaling.",
-    price: "From KES 120,000"
+    price: "From KES 120,000",
+    image: "/images/premium_photo-1720287601920-ee8c503af775.avif"
   }
 ];
 
@@ -113,7 +116,14 @@ function Home() {
 
             {/* Right Feature Card */}
             <div className="col-lg-5">
-              <div className="card bg-secondary bg-opacity-10 border border-secondary border-opacity-25 text-white rounded-4 p-4 shadow-lg">
+              <div className="card bg-secondary bg-opacity-10 border border-secondary border-opacity-25 text-white rounded-4 overflow-hidden shadow-lg">
+                <img
+                  src="/images/photo-1542744173-8e7e53415bb0.avif"
+                  alt="UrbanCat team collaborating in a strategy meeting"
+                  className="w-100"
+                  style={{ height: "260px", objectFit: "cover" }}
+                />
+                <div className="p-4">
                 <div className="card-body">
                   <div className="d-flex align-items-center gap-3 mb-4">
                     <div className="bg-primary text-white rounded-3 p-3">
@@ -143,6 +153,7 @@ function Home() {
                         Direct WhatsApp and phone support with full training so you stay in control.
                       </p>
                     </div>
+                  </div>
                   </div>
                 </div>
               </div>
@@ -181,6 +192,13 @@ function Home() {
             return (
               <div key={idx} className="col-md-4">
                 <div className="card h-100 border-0 rounded-4 shadow-sm p-3">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="card-img-top rounded-3"
+                    style={{ height: "190px", objectFit: "cover" }}
+                    loading="lazy"
+                  />
                   <div className="card-body d-flex flex-column justify-content-between">
                     <div>
                       <div className="bg-primary bg-opacity-10 text-primary rounded-3 p-3 d-inline-flex mb-4">

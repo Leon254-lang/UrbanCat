@@ -16,6 +16,7 @@ const PROJECTS = [
     result: "+210% increase in online orders within 60 days",
     tech: ["React", "Bootstrap", "Node.js", "M-Pesa Daraja API"],
     gradient: "linear-gradient(135deg, #0d6efd 0%, #0a2540 100%)",
+    image: "/images/photo-1563986768494-4dee2763ff3f.avif",
     icon: ShoppingCart,
     highlights: [
       "Instant Safaricom M-Pesa STK Push checkout with automated SMS receipts",
@@ -33,6 +34,7 @@ const PROJECTS = [
     result: "Cut customer support calls by 65% via live tracking",
     tech: ["React", "Bootstrap", "PostgreSQL", "Maps API"],
     gradient: "linear-gradient(135deg, #198754 0%, #0f291e 100%)",
+    image: "/images/photo-1678690832311-bb6e361989ca.avif",
     icon: Globe,
     highlights: [
       "Waybill tracking page with live status updates at every transit hub",
@@ -50,6 +52,7 @@ const PROJECTS = [
     result: "4,500+ active monthly members across 180 chamas",
     tech: ["React Native", "Node.js", "M-Pesa Paybill", "Firebase"],
     gradient: "linear-gradient(135deg, #6f42c1 0%, #1e1238 100%)",
+    image: "/images/premium_photo-1720287601920-ee8c503af775.avif",
     icon: Smartphone,
     highlights: [
       "Automated M-Pesa Paybill reconciliation that credits member wallets instantly",
@@ -67,6 +70,7 @@ const PROJECTS = [
     result: "3x more international wholesale leads per month",
     tech: ["React", "Bootstrap", "Technical SEO"],
     gradient: "linear-gradient(135deg, #0dcaf0 0%, #083344 100%)",
+    image: "/images/photo-1658863025658-4a259cc68fc9.avif",
     icon: Layers,
     highlights: [
       "Interactive tea grade showcase with tasting notes and packaging specs",
@@ -84,6 +88,7 @@ const PROJECTS = [
     result: "Reduced missed appointments by 48%",
     tech: ["React", "Bootstrap", "Express", "SMS Gateway"],
     gradient: "linear-gradient(135deg, #dc3545 0%, #2c0b0e 100%)",
+    image: "/images/photo-1787839253728-f6d42c2cfb8c.avif",
     icon: TrendingUp,
     highlights: [
       "Real-time specialist availability calendar with instant slot booking",
@@ -101,6 +106,7 @@ const PROJECTS = [
     result: "KES 1.8M+ in launch-month sales",
     tech: ["React", "Bootstrap", "M-Pesa API", "Cloudinary"],
     gradient: "linear-gradient(135deg, #fd7e14 0%, #331904 100%)",
+    image: "/images/photo-1557838923-2985c318be48.avif",
     icon: ShoppingCart,
     highlights: [
       "Dynamic size and color variant selector with live stock counts",
@@ -190,10 +196,18 @@ function Portfolio() {
                 <div className="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
                   {/* Visual Banner Header */}
                   <div
-                    className="p-4 text-white d-flex flex-column justify-content-between"
-                    style={{ background: project.gradient, minHeight: "175px" }}
+                    className="p-4 text-white d-flex flex-column justify-content-between position-relative overflow-hidden"
+                    style={{ minHeight: "175px" }}
                   >
-                    <div className="d-flex justify-content-between align-items-start">
+                    <img
+                      src={project.image}
+                      alt=""
+                      className="position-absolute top-0 start-0 w-100 h-100"
+                      style={{ objectFit: "cover" }}
+                      loading="lazy"
+                    />
+                    <div className="position-absolute top-0 start-0 w-100 h-100" style={{ background: "linear-gradient(135deg, rgba(13,37,64,.82), rgba(13,37,64,.35))" }} />
+                    <div className="d-flex justify-content-between align-items-start position-relative">
                       <span className="badge bg-white bg-opacity-25 text-white rounded-pill px-3 py-1">
                         {project.category}
                       </span>
@@ -201,7 +215,7 @@ function Portfolio() {
                         <Icon size={22} />
                       </div>
                     </div>
-                    <div>
+                    <div className="position-relative">
                       <small className="text-white-50 d-block mt-3">{project.year}</small>
                       <h3 className="h5 fw-bold mb-0">{project.title}</h3>
                     </div>

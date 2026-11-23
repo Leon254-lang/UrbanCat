@@ -50,6 +50,14 @@ function Contact() {
               Choose the channel that works best for you, or visit our office during working hours.
             </p>
 
+            <img
+              src="/images/photo-1542744173-8e7e53415bb0.avif"
+              alt="A productive digital project meeting"
+              className="w-100 rounded-4 shadow-sm mb-4"
+              style={{ height: "190px", objectFit: "cover" }}
+              loading="lazy"
+            />
+
             <div className="d-flex flex-column gap-3 mb-4">
               {/* Phone / WhatsApp */}
               <div className="card border-0 shadow-sm rounded-4 p-3">
