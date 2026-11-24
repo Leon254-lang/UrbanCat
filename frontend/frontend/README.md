@@ -2,6 +2,22 @@
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
+## Django API
+
+The contact form submits to `POST /api/contact-messages/`. The project brief form submits
+its contact details, service, budget, description, and optional files to
+`POST /api/project-inquiries/`. Both submissions are stored in Django and can be reviewed
+by staff in the Django admin.
+
+For local development, start Django from `backend` with
+`urban\Scripts\python.exe UrbanCatera\manage.py runserver`, then start Vite from this
+directory with `npm run dev`. Vite proxies `/api` requests to `http://127.0.0.1:8000`.
+Set `VITE_API_BASE_URL` when the deployed frontend and API are hosted at different origins.
+For a cross-origin deployment, allow the frontend origin in Django's `CORS_ALLOWED_ORIGINS`
+environment variable. Apply schema changes with
+`urban\Scripts\python.exe UrbanCatera\manage.py migrate`; create a staff account with
+`urban\Scripts\python.exe UrbanCatera\manage.py createsuperuser` to review submissions at `/admin/`.
+
 Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)

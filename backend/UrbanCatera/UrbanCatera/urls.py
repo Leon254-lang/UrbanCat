@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from myapp.views import ContactMessageCreateView, ProjectInquiryCreateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/contact-messages/', ContactMessageCreateView.as_view(), name='contact-messages'),
+    path('api/project-inquiries/', ProjectInquiryCreateView.as_view(), name='project-inquiries'),
 ]

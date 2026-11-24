@@ -3,6 +3,7 @@ import {
   MapPin, Phone, Mail, Clock, Send,
   CheckCircle, MessageSquare, Sparkles
 } from 'lucide-react';
+import { sendContactMessage } from '../api';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -13,14 +14,25 @@ function Contact() {
     message: ''
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setSubmitError('');
+    try {
+      await sendContactMessage(formData);
+      setSubmitted(true);
+    } catch (error) {
+      setSubmitError(error.message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -136,6 +148,7 @@ function Contact() {
                   <button
                     onClick={() => {
                       setSubmitted(false);
+                      setSubmitError('');
                       setFormData({ name: '', email: '', phone: '', subject: 'General Inquiry', message: '' });
                     }}
                     className="btn btn-primary px-4 fw-semibold"
@@ -151,6 +164,9 @@ function Contact() {
                   </p>
 
                   <form onSubmit={handleSubmit}>
+                    {submitError && (
+                      <div className="alert alert-danger" role="alert">{submitError}</div>
+                    )}
                     <div className="row g-3">
                       <div className="col-md-6">
                         <label htmlFor="name" className="form-label small fw-semibold">
@@ -236,8 +252,8 @@ function Contact() {
                       </div>
                     </div>
 
-                    <button type="submit" className="btn btn-primary w-100 py-3 mt-4 rounded-3 fw-bold d-flex align-items-center justify-content-center gap-2">
-                      <Send size={18} /> Send Message
+                    <button type="submit" className="btn btn-primary w-100 py-3 mt-4 rounded-3 fw-bold d-flex align-items-center justify-content-center gap-2" disabled={isSubmitting}>
+                      <Send size={18} /> {isSubmitting ? 'Sending…' : 'Send Message'}
                     </button>
                   </form>
                 </>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   ArrowRight, CheckCircle, Code, ShoppingCart, Smartphone,
   Star, ShieldCheck, Zap, Users, Sparkles
@@ -54,19 +54,6 @@ const TESTIMONIALS = [
 ];
 
 function Home() {
-  const [showQuoteModal, setShowQuoteModal] = useState(false);
-  const [quoteSubmitted, setQuoteSubmitted] = useState(false);
-
-  const handleOpenQuote = () => {
-    setQuoteSubmitted(false);
-    setShowQuoteModal(true);
-  };
-
-  const handleQuoteSubmit = (e) => {
-    e.preventDefault();
-    setQuoteSubmitted(true);
-  };
-
   return (
     <div className="bg-light text-dark">
 
@@ -87,12 +74,12 @@ function Home() {
               </p>
 
               <div className="d-flex flex-wrap gap-3 mb-4">
-                <button
-                  onClick={handleOpenQuote}
+                <Link
+                  to="/upload"
                   className="btn btn-primary btn-lg px-4 fw-semibold d-inline-flex align-items-center gap-2"
                 >
                   Start Your Project <ArrowRight size={18} />
-                </button>
+                </Link>
                 <a
                   href="/services"
                   className="btn btn-outline-light btn-lg px-4 fw-semibold"

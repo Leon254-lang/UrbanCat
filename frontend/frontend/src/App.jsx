@@ -11,6 +11,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Portfolio from './pages/Portfolio';
 import Contact from './pages/Contact';
+import Upload from './pages/Upload';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -104,7 +105,19 @@ function Navbar() {
                 Contact
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink
+                to="/upload"
+                onClick={closeMenu}
+                className={({ isActive }) =>
+                  `nav-link fw-semibold ${isActive ? 'active text-primary' : 'text-light'}`
+                }
+              >
+                Upload
+              </NavLink>
+            </li>
           </ul>
+          
 
           <div className="d-flex pt-2 pt-lg-0">
             <Link
@@ -213,6 +226,7 @@ function App() {
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
+            <Route path="/upload" element={<Upload />} />
           </Routes>
         </main>
         <Footer />
