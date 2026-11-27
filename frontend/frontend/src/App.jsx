@@ -12,6 +12,7 @@ import Services from './pages/Services';
 import Portfolio from './pages/Portfolio';
 import Contact from './pages/Contact';
 import Upload from './pages/Upload';
+import Payment from './pages/Payment';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -117,7 +118,17 @@ function Navbar() {
               </NavLink>
             </li>
           </ul>
-          
+          <NavLink
+            to="/payment"
+            onClick={closeMenu}
+            className={({ isActive }) =>
+              `btn btn-outline-primary fw-semibold px-4 rounded-pill d-inline-flex align-items-center gap-1 ${
+                isActive ? 'active' : ''
+              }`
+            }
+          >
+            Payment <ArrowUpRight size={16} />
+          </NavLink>
 
           <div className="d-flex pt-2 pt-lg-0">
             <Link
@@ -227,6 +238,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/upload" element={<Upload />} />
+            <Route path="/payment" element={<Payment/>} />
           </Routes>
         </main>
         <Footer />
